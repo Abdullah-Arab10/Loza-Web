@@ -14,7 +14,6 @@ export class LoginComponent implements OnInit {
   constructor(private authService: AuthService) {}
   ngOnInit(): void {
     this.initLoginFormGroup();
-    this.loginForm.valueChanges.subscribe((ch) => console.log('changes', ch));
   }
   public submit() {
     this.loginForm.markAllAsTouched();

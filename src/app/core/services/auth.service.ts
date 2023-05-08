@@ -4,6 +4,7 @@ import {ILoginRequestModel} from '../models/login.model';
 import {BehaviorSubject, Subject, map, tap} from 'rxjs';
 import * as moment from 'moment';
 import {NotificationService} from './themes/notification.service';
+import {environment} from 'src/environments/environment';
 @Injectable({
   providedIn: 'root',
 })
@@ -18,7 +19,7 @@ export class AuthService {
 
   public login(request: ILoginRequestModel) {
     return this.http
-      .post('https://loza-api.azurewebsites.net/Auth/Login', request)
+      .post(`${environment.authUrl}Login`, request)
       .pipe()
       .subscribe((res) => {
         this.setSession(res);
