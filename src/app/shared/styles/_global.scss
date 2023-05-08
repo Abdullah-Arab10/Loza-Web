@@ -1,0 +1,25 @@
+@import '_fonts.scss';
+@import 'colors';
+
+* {
+  font-family: 'inter', 'arial', sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+/* body.dark {
+  @include darken();
+}
+body.light {
+  @include lighten();
+} */
+main {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: var(--bgColor);
+  color: var(--textColor);
+}

@@ -1,0 +1,11 @@
+@import '../../styles/colors';
+.mat-toolbar-row,
+.mat-toolbar-single-row {
+  position: sticky;
+  top: 0;
+  right: 0;
+  left: 0;
+  background-color: $lightestGray;
+  height: 3rem;
+  padding: 3rem;
+}

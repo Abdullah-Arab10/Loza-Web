@@ -1,0 +1,13 @@
+<div class="field" [formGroup]="form">
+    <div class="field__label">{{label}}</div>
+    <div class="field__wrapper">
+        <span class="field__wrapper__icon">
+            <svg-icon src={{icon}}></svg-icon>
+        </span>
+        <input type="text" class="field__wrapper__input" placeholder={{placeholder}} [class.icon-input]="icon"
+        (change)="emitValue($event)" formControlName={{control}}>
+    </div>
+           <div class="field__wrapper__error" *ngIf="form.controls[control].errors">
+ {{errorMessage}}
+        </div>
+</div>
