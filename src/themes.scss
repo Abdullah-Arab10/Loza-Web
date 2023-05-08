@@ -1,0 +1,21 @@
+/* $my-theme-primary: mat-palette(indigo, 500, 200, 800);
+$my-theme-accent: mat-palette(cyan);
+$my-theme-warn: mat-palette(orange, A200);
+
+$light-theme: mat-light-theme(
+  $my-theme-primary,
+  $my-theme-accent,
+  $my-theme-warn
+);
+
+// ====================================
+// Make sure to have a dark background
+// Dropdowns will blend in with light
+// backgrounds.
+// ====================================
+$dark-theme: mat-dark-theme(
+  $my-theme-primary,
+  $my-theme-accent,
+  $my-theme-warn
+);
+ */

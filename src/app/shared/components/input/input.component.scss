@@ -1,0 +1,42 @@
+@import '../../styles/colors';
+.field {
+  margin-block: 2rem;
+  &__label {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 1.71429;
+    color: $darkerGray;
+    padding-left: 0.5rem;
+  }
+  &__wrapper {
+    padding-left: 0.5rem;
+    position: relative;
+    &__icon {
+      position: absolute;
+      bottom: 0.75rem;
+      left: 1rem;
+    }
+    &__input {
+      width: 100%;
+      height: 3rem;
+      padding: 0 0.6rem;
+      border-radius: 0.75rem;
+      border: 2px solid transparent;
+      background: $lighterGray;
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.6;
+      color: $darkerBlack;
+      transition: all 0.2s;
+    }
+    &__error {
+      padding-left: 1rem;
+      font-size: 13px;
+      color: $red;
+      transition-duration: 3s;
+    }
+  }
+}
+.icon-input {
+  padding-left: 3rem;
+}

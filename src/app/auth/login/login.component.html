@@ -1,0 +1,38 @@
+<div class="content m-0 ">
+
+    <div class="login col-lg-6">
+        <div class="login__wrapper">
+            <div class="row h-100">
+                <div class="login__wrapper__background col-lg-6">
+
+                </div>
+                <form class="login__wrapper__form mt-5 col-lg-6" [formGroup]="loginForm">
+                    <div class="login__wrapper__form__logo">
+                        <img src="../../../assets/images/Oval-logo.png" alt="logo">
+                    </div>
+                    <div class="login__wrapper__form__title">
+                        <app-title [title]="'Sign In'"></app-title>
+
+                    </div>
+                    <div class="login__wrapper__form__field">
+                        <app-input [placeholder]="'Your email'"
+                            [icon]="'../../../../assets/icons/email-light.svg'"
+                            [control]="'email'"></app-input>
+                    </div>
+                    <div class="login__wrapper__form__field">
+
+                        <app-input [placeholder]="'Your password'"
+                            [icon]="'../../../../assets/icons/lock-light.svg'"
+                            [control]="'password'"></app-input>
+
+
+
+                    </div>
+                    <div class="login__wrapper__form__button">
+                        <app-button (click)="submit()" [title]="'Sign in'"></app-button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

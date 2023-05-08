@@ -1,0 +1,41 @@
+//light mode
+$white: #ffffff; // 00
+$lightestGray: #fcfcfc; //01
+$lighterGray: #f4f4f4; //02
+$lightGray: #efefef; //03
+
+//dark mode
+
+$darkGray: #6f767e; //04
+$darkerGray: #33383f; //05
+$darkBlack: #272b30; //06
+$darkerBlack: #1a1d1f; //07
+$darkest: #111315; // 08
+
+//
+
+$blue: #2a85ff;
+$green: #83bf6e;
+$red: #ff6a55;
+$purple: #8e59ff;
+$orange: #ffbc99;
+$lavender: #cabdff;
+$cyan: #b1e5fc;
+$pistachio: #b5e4ca;
+$yellow: #ffd88d;
+$purble-light: #cabdff;
+$red-light: #ffe7e4;
+@mixin lighten() {
+  --backgroundColor: #{$lighterGray};
+  --contentBackgroundColor: #{$lightestGray};
+  --textColor: #{$darkBlack};
+  --borderColor: #{$lightGray};
+}
+
+// mixin that enables css variables in dark mode
+@mixin darken() {
+  --backgroundColor: #{$darkest};
+  --contentBackgroundColor: #{$darkerBlack};
+  --textColor: #{$lightGray};
+  --borderColor: #{$lightGray};
+}
