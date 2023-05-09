@@ -1,7 +1,6 @@
-
 <div class="content">
- <app-sidebar *ngIf="signedIn">
-</app-sidebar>
-<app-login *ngIf="!signedIn"></app-login>
-<app-spinner *ngIf="loading"></app-spinner>   
+    <app-spinner *ngIf="loading"></app-spinner>
+    <app-sidebar *ngIf="signedIn">
+    </app-sidebar>
+    <app-login *ngIf="!signedIn"></app-login>
 </div>

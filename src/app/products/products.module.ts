@@ -21,7 +21,6 @@ import {ProductsDashboardComponent} from './products-dashboard/products-dashboar
   imports: [
     CommonModule,
     ProductsRoutingModule,
-    AppModule,
     MatFormFieldModule,
     MatSelectModule,
     ReactiveFormsModule,

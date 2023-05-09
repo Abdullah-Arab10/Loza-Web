@@ -66,7 +66,7 @@ export class SidebarComponent implements OnInit {
       route: '/properties',
       subItems: [
         {title: 'Overview', route: 'properties/overview'},
-        {title: 'Create Property', route: 'property/create'},
+        {title: 'Create Property', route: 'properties/create'},
         {title: 'Properties List', route: 'properties/list'},
       ],
     },
@@ -94,5 +94,8 @@ export class SidebarComponent implements OnInit {
   ];
   stop(event: Event) {
     event.stopPropagation();
+  }
+  navigate(route: string) {
+    this.route.navigate([route]);
   }
 }
