@@ -38,7 +38,7 @@
     "@angular-devkit/schematics": "~15.2.2",
     "@angular/cli": "~15.2.2",
     "@angular/compiler-cli": "^15.2.0",
-    "@nx/angular": "16.0.1",
+    "@ /angular": "16.0.1",
     "@nx/workspace": "16.0.1",
     "@schematics/angular": "~15.2.2",
     "@types/jasmine": "~4.3.0",

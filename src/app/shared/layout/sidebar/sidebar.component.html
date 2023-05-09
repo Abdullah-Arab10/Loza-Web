@@ -10,7 +10,7 @@
 
       <div class="py-5 row">
         <ul class="sidebar__items">
-          <li *ngFor="let item of sideBarItems" routerLink={{item.route}} >
+          <li *ngFor="let item of sideBarItems" routerLink={{item.route}} (click)="navigate(item.route)" >
 
             <mat-accordion class="example-headers-align">
               <mat-expansion-panel [hideToggle]="expanded==false||item?.subItems?.length==0">
@@ -27,7 +27,7 @@
 
                 </mat-expansion-panel-header>
                 <ul *ngIf="item.subItems?.length!=0 && expanded" class="sidebar__items__sub-items pl-0">
-                  <li *ngFor="let sub of item.subItems" class="sidebar__items__sub-items__item" (click)="stop($event); setActiveClass(item.route)"
+                  <li *ngFor="let sub of item.subItems" class="sidebar__items__sub-items__item" (click)="stop($event); setActiveClass(item.route);navigate(sub.route)"
                     routerLink={{sub.route}} [routerLinkActive]="expanded==true ?'active' : ' ' " 
                   >
                     <span class="">

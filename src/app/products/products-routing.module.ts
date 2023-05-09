@@ -5,9 +5,9 @@ import {ProductsCreateComponent} from './products-create/products-create.compone
 import {ProductsListComponent} from './products-list/products-list.component';
 
 const routes: Routes = [
+  {path: '', redirectTo: 'overview', pathMatch: 'full'},
   {
-    path: 'products',
-    redirectTo: 'products/overview',
+    path: '',
     children: [
       {path: 'overview', component: ProductsDashboardComponent},
       {path: 'create', component: ProductsCreateComponent},
