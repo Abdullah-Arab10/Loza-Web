@@ -1,0 +1,7 @@
+<app-table
+  [columns]="columns"
+  [items]="customers"
+  [title]="'Customers List'"
+  [filterFields]="['firstName,lastName']"
+  (deleteItemsEvent)="blockUsers($event)"
+></app-table>

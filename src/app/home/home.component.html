@@ -1,46 +1,109 @@
-<div class="home  row">
-    <div class="row home__title">
-        <h1 class="title">Dashboard</h1>
-    </div>
-    <div class="row home__content">
-        <div class="home__content__overview card col-md-8">
-            <div class="row home__content__overview__title">
-                <app-card-title [title]="'Overview'" [className]="'orange-background'" ></app-card-title>
-
-            </div>
-            <div class="row home__content__overview__cards row">
-                <div class="home__content__overview__cards__card  col-md-6 " [class.active-card]="firstActive" (click)="toggleCardActivation()">
-                    <div class="home__content__overview__cards__card__icon col-md-3">
-                        <span class="background-cyan icon cyan-background">
-                            <svg-icon src="../../assets/icons/customer-light.svg"></svg-icon>
-                        </span>
-                    </div>
-                    <div class="home__content__overview__cards__card__content col-md-6">
-                        <span class="caption">Customers</span>
-                        <span class="card-info">1024</span>
-                    </div>
-                    <div class="home__content__overview__cards__card__ratio card-ratio red-light-background col-3">
-                        <svg-icon src="../../assets/icons/down.svg"></svg-icon>
-                        <span>30%</span>
-                    </div>
-                </div>
-                 <div class="home__content__overview__cards__card  col-md-6" [class.active-card]="!firstActive" (click)="toggleCardActivation()">
-                    <div class="home__content__overview__cards__card__icon col-3">
-                        <span class="purble-light-background icon ">
-                            <svg-icon src="../../assets/icons/income.svg"></svg-icon>
-                        </span>
-                    </div>
-                    <div class="home__content__overview__cards__card__content col-md-6 ">
-                        <span class="caption">Income</span>
-                        <span class="card-info">256K</span>
-                    </div>
-                    <div class="home__content__overview__cards__card__ratio card-ratio red-light-background col-3">
-                        <svg-icon src="../../assets/icons/down.svg"></svg-icon>
-                        <span>30%</span>
-                    </div>
-                </div>
-            </div>
-
+<div class="home row">
+  <div class="row home__title">
+    <h1 class="title">Dashboard</h1>
+  </div>
+  <div class="row home__content d-flex flex-nowrap">
+    <div class="home__content__overview card col-lg-12">
+      <div class="row home__content__overview__title">
+        <app-card-title
+          [title]="'Overview'"
+          [className]="'orange-background'"
+        ></app-card-title>
+      </div>
+      <div class="row home__content__overview__cards row">
+        <div
+          class="home__content__overview__cards__card col-lg-6"
+          [class.active-card]="firstActive"
+          (click)="toggleCardActivation()"
+        >
+          <div class="home__content__overview__cards__card__icon col-lg-3">
+            <span class="background-cyan icon cyan-background">
+              <svg-icon src="../../assets/icons/income.svg"></svg-icon>
+            </span>
+          </div>
+          <div class="home__content__overview__cards__card__content col-lg-6">
+            <span class="caption">Customers</span>
+            <span class="card-info">{{ statisticsValues?.userCount }}</span>
+          </div>
+          <!--    <div
+            class="home__content__overview__cards__card__ratio card-ratio red-light-background col-3"
+          >
+            <svg-icon src="../../assets/icons/down.svg"></svg-icon>
+            <span>30%</span>
+          </div> -->
         </div>
+        <div
+          class="home__content__overview__cards__card col-lg-6"
+          [class.active-card]="!firstActive"
+          (click)="toggleCardActivation()"
+        >
+          <div class="home__content__overview__cards__card__icon col-3">
+            <span class="purble-light-background icon">
+              <svg-icon src="../../assets/icons/wallet.svg"></svg-icon>
+            </span>
+          </div>
+          <div class="home__content__overview__cards__card__content col-lg-6">
+            <span class="caption">Income</span>
+            <span class="card-info">{{ statisticsValues?.TotalCheck }}</span>
+          </div>
+          <!--   <div
+            class="home__content__overview__cards__card__ratio card-ratio red-light-background col-3"
+          >
+            <svg-icon src="../../assets/icons/down.svg"></svg-icon>
+            <span>30%</span>
+          </div> -->
+        </div>
+      </div>
     </div>
+  </div>
+  <div class="row home__content">
+    <div class="home__content__overview card col-lg-12">
+      <div class="row flex-nowrap justify-content-around">
+        <div class="col-lg-4 card transparent-blue-background mx-1">
+          <div class="home__content__overview__cards__card__content my-3">
+            <span class="purble-light-background icon mb-2">
+              <svg-icon src="../../assets/icons/smile.svg"></svg-icon>
+            </span>
+
+            <span class="caption"> Order Counts</span>
+            <span class="card-info">{{ statisticsValues?.orderCount }}</span>
+          </div>
+        </div>
+        <div class="col-lg-4 card transparent-red-background mx-1">
+          <div class="home__content__overview__cards__card__content my-3">
+            <span class="purble-light-background icon mb-2">
+              <svg-icon src="../../assets/icons/return.svg"></svg-icon>
+            </span>
+
+            <span class="caption"> Order Returned Count</span>
+            <span class="card-info">{{
+              statisticsValues?.orderReturnedCount
+            }}</span>
+          </div>
+        </div>
+
+        <div class="col-lg-4 card transparent-green-background mx-1">
+          <div class="home__content__overview__cards__card__content my-3">
+            <span class="purble-light-background icon mb-2">
+              <svg-icon src="../../assets/icons/customer-light.svg"></svg-icon>
+            </span>
+
+            <span class="caption"> Product Count</span>
+            <span class="card-info">{{ statisticsValues?.productCount }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row home__content">
+    <div class="home__content__overview card col-lg-12">
+      <div class="row home__content__overview__title">
+        <app-table
+          [title]="'Top Sold Products'"
+          [columns]="columns"
+          [items]="statisticsValues?.products || []"
+        ></app-table>
+      </div>
+    </div>
+  </div>
 </div>

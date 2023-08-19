@@ -6,7 +6,7 @@
   background-color: $green;
 }
 .red-background {
-  background-color: $red;
+  background-color: $red !important;
 }
 .purble-background {
   background-color: $purple;
@@ -21,7 +21,7 @@
   background-color: $cyan;
 }
 .pistachio-background {
-  background-color: $pistachio;
+  background-color: $pistachio !important;
 }
 .yellow-background {
   background-color: $yellow;
@@ -32,7 +32,27 @@
 .purble-light-background {
   background: $purble-light;
 }
-
+.green-light-background {
+  background: $green-light;
+}
+.gray-darker-background {
+  background: $lighterGray;
+}
+.transparent-green-background {
+  background: $transparent-green !important;
+}
+.transparent-blue-background {
+  background: $transparent-blue !important;
+}
+.transparent-purble-background {
+  background: $transparent-purble !important;
+}
+.transparent-red-background {
+  background: $transparent-red !important;
+}
+.black-background {
+  background: $darkerBlack;
+}
 element.style {
   opacity: 1;
 }

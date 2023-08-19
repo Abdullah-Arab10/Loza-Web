@@ -1,1 +1,168 @@
-<p>products-create works!</p>
+<div class="wrapper row">
+  <div class="row home__title">
+    <h1 class="title">New product</h1>
+  </div>
+  <div class="row content justify-content-around">
+    <form [formGroup]="productForm" class="col-lg-8">
+      <div class="row">
+        <div class="card col-lg-12">
+          <div class="row">
+            <app-card-title
+              [title]="'Name & description'"
+              [className]="'green-light-background'"
+            ></app-card-title>
+          </div>
+          <div class="filed">
+            <app-input [label]="'Product title'" [control]="'name'"></app-input>
+          </div>
+
+          <div class="filed">
+            <app-input
+              [label]="'Description'"
+              [control]="'description'"
+              [field]="'textarea'"
+            ></app-input>
+          </div>
+        </div>
+        <div class="card col-lg-12">
+          <div class="row">
+            <app-card-title
+              [title]="'Images'"
+              [className]="'cyan-background'"
+            ></app-card-title>
+            <app-image-uploader
+              [label]="'Cover Image'"
+              (imagePreview)="setPreviewImage($event)"
+              [control]="'imageFile'"
+            ></app-image-uploader>
+            <app-image-uploader
+              [label]="'Product Images'"
+              [multiple]="true"
+              (imageFilesSelection)="multiSelect($event)"
+              (imageFilesDelete)="multiDelete($event)"
+            ></app-image-uploader>
+          </div>
+        </div>
+        <div class="card col-lg-12">
+          <div class="row">
+            <app-card-title
+              [title]="'Price & quantity'"
+              [className]="'green-light-background'"
+            ></app-card-title>
+          </div>
+          <div class="row px-3">
+            <div class="filed col-lg-6">
+              <app-input
+                [label]="'Price'"
+                [control]="'price'"
+                [currency]="true"
+              ></app-input>
+            </div>
+            <div class="filed col-lg-6">
+              <app-input
+                [label]="'Quantity'"
+                [control]="'quantity'"
+              ></app-input>
+            </div>
+          </div>
+        </div>
+        <div class="card col-lg-12">
+          <div class="row">
+            <app-card-title
+              [title]="'Category'"
+              [className]="'purble-light-background'"
+            ></app-card-title>
+          </div>
+
+          <div class="field p-3">
+            <app-select
+              [control]="'category'"
+              [items]="categories"
+            ></app-select>
+          </div>
+        </div>
+        <div class="col-lg-12 card">
+          <div class="row">
+            <app-card-title
+              [title]="'Details'"
+              [className]="'orange-background'"
+            ></app-card-title>
+            <div class="row">
+              <div class="field p-3">
+                <app-select
+                  [control]="'color'"
+                  [label]="'Color'"
+                  [items]="colors"
+                ></app-select>
+              </div>
+            </div>
+            <div class="row px-3">
+              <div class="field__label">Product Dimensions</div>
+
+              <div class="filed col-lg-4 d-flex align-items-center">
+                <app-input [label]="'L'" [control]="'length'"></app-input>
+                <span class="field__label mt-5">X</span>
+              </div>
+
+              <div class="filed col-lg-4 d-flex align-items-center">
+                <app-input [label]="'W'" [control]="'width'"></app-input>
+                <span class="field__label mt-5">X</span>
+              </div>
+
+              <div class="filed col-lg-4 d-flex align-items-center">
+                <app-input [label]="'H'" [control]="'height'"></app-input>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-12 card">
+        <div class="footer">
+          <app-button [title]="'Create'" (click)="submit()"></app-button>
+        </div>
+      </div>
+    </form>
+    <div class="col-lg-3 card preview">
+      <div class="row">
+        <app-card-title
+          [title]="'Preview'"
+          [className]="'yellow-background'"
+        ></app-card-title>
+        <div class="row">
+          <div class="image-wrapper__preview preview__image">
+            <img
+              class="h-100"
+              *ngIf="productForm?.value.imageFile"
+              [src]="image || ''"
+              alt="no image"
+            />
+            <div *ngIf="!productForm.controls['imageFile']">
+              No image upload yet
+            </div>
+
+            <!--   <div class="row">
+              <div class="image-wrapper__preview">
+                <img
+                  *ngIf="productForm.controls['image']"
+                  [src]="image"
+                  alt=""
+                />
+                <div *ngIf="!productForm.controls['image']">
+                  No image upload yet
+                </div>
+              </div>
+            </div> -->
+          </div>
+          <div class="row py-2">
+            <div class="sub-title col-lg-7">
+              {{ this.productForm.value.name }}
+            </div>
+            <div class="price pistachio-background col-lg-4 d-flex">
+              {{ this.productForm.value.price / 1000 | currency }}K
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

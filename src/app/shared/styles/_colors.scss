@@ -25,6 +25,13 @@ $pistachio: #b5e4ca;
 $yellow: #ffd88d;
 $purble-light: #cabdff;
 $red-light: #ffe7e4;
+$green-light: #b5e4ca;
+////////////////////
+$transparent-green: #edf8f2;
+$transparent-red: #ffe7e4;
+$transparent-purble: #f2efff;
+$transparent-blue: #ecf9fe;
+///////////////////
 @mixin lighten() {
   --backgroundColor: #{$lighterGray};
   --contentBackgroundColor: #{$lightestGray};

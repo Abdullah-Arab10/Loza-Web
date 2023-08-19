@@ -1,0 +1,13 @@
+@import '../../shared/styles/_global';
+@import '../../shared/styles/_images';
+@import '../../shared/styles/_shared';
+
+.preview {
+  max-height: 25rem;
+  padding-bottom: 5rem;
+  position: sticky;
+  top: -1rem;
+  &__image {
+    max-height: 15rem;
+  }
+}

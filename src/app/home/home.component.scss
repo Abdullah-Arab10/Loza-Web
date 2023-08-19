@@ -1,7 +1,5 @@
-@import '../shared/styles/fonts';
+@import '../shared/styles/global';
 @import '../shared/styles/colors';
-@import '../shared/styles/_backgrounds';
-
 .home {
   padding: 1rem;
   &__content {
@@ -30,81 +28,21 @@
           }
           &__ratio {
           }
+          &__statistics {
+            display: flex;
+            flex-direction: column;
+            /*   &__title {
+              display: flex;
+              align-items: center;
+              margin-bottom: 4px;
+              font-size: 13px;
+              font-weight: 600;
+              line-height: 1.23077;
+              color: #33383f;
+            } */
+          }
         }
       }
     }
   }
-}
-
-.card {
-  display: flex;
-  background-color: $lightestGray;
-  border: none;
-  border-radius: 0.5rem;
-  padding: 1.5rem;
-}
-.caption {
-  font-weight: 600;
-  font-size: 13px;
-  line-height: 16px;
-
-  letter-spacing: -0.01em;
-  margin-bottom: 0.5rem;
-  color: $darkGray;
-}
-.card-info {
-  font-weight: 600;
-  font-size: 48px;
-  line-height: 48px;
-  /* identical to box height, or 100% */
-
-  letter-spacing: -0.03em;
-
-  /* Neutral/07 */
-
-  color: $darkerBlack;
-}
-.icon {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-shrink: 0;
-  width: 40px;
-  height: 40px;
-  margin-right: 16px;
-  border-radius: 50%;
-
-  svg-icon {
-    svg {
-      path {
-        fill: $darkerBlack;
-      }
-    }
-  }
-}
-.card-ratio {
-  height: 1.5rem;
-  padding: 0 4px;
-  border-radius: 8px;
-  color: $red;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 12px;
-  font-weight: 700;
-  line-height: 1.3;
-  max-width: 5rem;
-  svg-icon {
-    svg {
-      path {
-        fill: $red;
-      }
-    }
-  }
-}
-.active-card {
-  background-color: $lightestGray;
-  box-shadow: 0px 4px 8px -4px rgba(0, 0, 0, 0.25),
-    inset 0px -1px 1px rgba(0, 0, 0, 0.04),
-    inset 0px 2px 0px rgba(255, 255, 255, 0.25);
 }

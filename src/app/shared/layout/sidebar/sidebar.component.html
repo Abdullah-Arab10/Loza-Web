@@ -1,51 +1,83 @@
 <mat-drawer-container class="sidebar-container p-0" autosize>
   <app-toolbar></app-toolbar>
-  <mat-drawer #drawer class="sidebar" [ngClass]="expanded==true ? 'expanded' : 'shrunken'" opened="true" mode="side">
+  <mat-drawer
+    #drawer
+    class="sidebar sidebar__mobile"
+    [ngClass]="expanded ? 'expanded' : 'shrunken'"
+    [class]="isMobile ? 'expanded' : ''"
+    *ngIf="(isMobile && isOpenForMobile) || !isMobile"
+    opened="true"
+    mode="side"
+    [@sidebarTrigger]
+  >
     <section class="logo row">
-
-      <div class="logo__container" (click)="isExpanded();">
-        <img src="../../../../assets/images/Oval-logo.png" alt="logo" class="logo__image" />
+      <div
+        class="logo__container"
+        (click)="isMobile ? toggleSidebarForMobile() : isExpanded()"
+      >
+        <img
+          src="../../../../assets/images/Oval-logo.png"
+          alt="logo"
+          class="logo__image"
+        />
       </div>
-
 
       <div class="py-5 row">
         <ul class="sidebar__items">
-          <li *ngFor="let item of sideBarItems" routerLink={{item.route}} (click)="navigate(item.route)" >
-
+          <li
+            *ngFor="let item of sideBarItems"
+            routerLink="{{ item.route }}"
+            (click)="navigate(item.route)"
+          >
             <mat-accordion class="example-headers-align">
-              <mat-expansion-panel [hideToggle]="expanded==false||item?.subItems?.length==0">
-                <mat-expansion-panel-header class="sidebar__items__item"
-                  [routerLinkActive]="item?.subItems?.length==0 ? 'active':' '  "
-                  [class.active]="setActiveClass(item.route)&&!expanded"
-                  >
+              <mat-expansion-panel
+                [hideToggle]="expanded == false || item?.subItems?.length == 0"
+              >
+                <mat-expansion-panel-header
+                  class="sidebar__items__item"
+                  [routerLinkActive]="
+                    item?.subItems?.length == 0 ? 'active' : ' '
+                  "
+                  [class.active]="setActiveClass(item.route) && !expanded"
+                >
                   <mat-panel-title>
                     <span class="">
-                      <svg-icon src={{item.icon}} class="sidebar__items__item__icon"></svg-icon>
-                      <p *ngIf="expanded"> {{ item.title }}</p>
+                      <svg-icon
+                        src="{{ item.icon }}"
+                        class="sidebar__items__item__icon"
+                      ></svg-icon>
+                      <p *ngIf="expanded">{{ item.title }}</p>
                     </span>
                   </mat-panel-title>
-
                 </mat-expansion-panel-header>
-                <ul *ngIf="item.subItems?.length!=0 && expanded" class="sidebar__items__sub-items pl-0">
-                  <li *ngFor="let sub of item.subItems" class="sidebar__items__sub-items__item" (click)="stop($event); setActiveClass(item.route);navigate(sub.route)"
-                    routerLink={{sub.route}} [routerLinkActive]="expanded==true ?'active' : ' ' " 
+                <ul
+                  *ngIf="item.subItems?.length != 0 && expanded"
+                  class="sidebar__items__sub-items pl-0"
+                >
+                  <li
+                    *ngFor="let sub of item.subItems"
+                    class="sidebar__items__sub-items__item"
+                    (click)="
+                      stop($event);
+                      setActiveClass(item.route);
+                      navigate(sub.route)
+                    "
+                    routerLink="{{ sub.route }}"
+                    [routerLinkActive]="expanded == true ? 'active' : ' '"
                   >
                     <span class="">
-                      <p *ngIf="expanded"> {{ sub?.title }}</p>
+                      <p *ngIf="expanded">{{ sub?.title }}</p>
                     </span>
                   </li>
-
                 </ul>
               </mat-expansion-panel>
             </mat-accordion>
           </li>
-
         </ul>
       </div>
     </section>
-
   </mat-drawer>
-  <div class="main-content" [class.expanded-content]="expanded" >
+  <div class="main-content" [class.expanded-content]="expanded">
     <router-outlet></router-outlet>
   </div>
 </mat-drawer-container>

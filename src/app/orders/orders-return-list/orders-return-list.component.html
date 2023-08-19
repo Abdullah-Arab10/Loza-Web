@@ -1,0 +1,7 @@
+<app-table
+  [columns]="columns"
+  [items]="orders"
+  [returnOrdrer]="true"
+  [title]="'Return Requests List'"
+  (itemsEventEmitter)="returnOrderRequest($event)"
+></app-table>

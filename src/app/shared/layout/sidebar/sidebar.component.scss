@@ -24,7 +24,7 @@ p {
 }
 
 .shrunken {
-  transition: 0.1s;
+  transition-duration: 1s;
   width: 5rem;
 
   .logo {
@@ -51,6 +51,8 @@ p {
 .expanded {
   padding-left: 2rem;
   width: 21.5rem;
+  transition-duration: 1s;
+  transform: translateX(10%);
   .sidebar {
     &__items {
       &__sub-items {
@@ -87,25 +89,26 @@ p {
 .main-content {
   display: flex;
   height: 100%;
-  width: 100%;
+  width: calc(100% - 4rem);
   background-color: $lightGray;
   overflow: auto;
   margin-left: 4rem;
   padding: 2rem 1.5rem;
+  padding-left: 2rem;
+  transition-duration: 1s;
 }
 .expanded-content {
   margin-left: 21rem;
-  transition-duration: 1s;
+  width: calc(100% - 21rem);
+  //transition-duration: 1s;
 }
 .sidebar {
   background-color: $lightestGray;
   padding-block: 2rem;
   display: flex;
   flex-direction: column;
-  transition-duration: 1s;
-  li {
-    list-style-type: none;
-  }
+  //transition-duration: 1s;
+
   &__items {
     &__link {
       text-decoration: none;
@@ -137,20 +140,28 @@ p {
   }
 }
 
-.active {
-  background: $lightGray !important;
-
-  box-shadow: inset 0px -2px 1px rgba(0, 0, 0, 0.05), inset 0px 1px 1px #ffffff;
-  border-radius: 12px;
-  color: $darkerBlack;
-  svg-icon {
-    svg {
-      path {
-        fill: $darkerBlack;
+.sidebar-content {
+}
+.hidden {
+  display: none;
+}
+@media (max-width: 786px) {
+  .mat-drawer {
+  }
+  .sidebar {
+    &__mobile {
+      &__opened {
+      }
+      &__closed {
+        display: none;
       }
     }
   }
-  transition-duration: 0.2s;
-}
-.sidebar-content {
+  .expanded-content,
+  .main-content,
+  .shrunken {
+    margin-left: 0;
+    padding: 0;
+    width: 100%;
+  }
 }

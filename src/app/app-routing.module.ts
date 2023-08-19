@@ -19,16 +19,26 @@ const routes: Routes = [
   },
   {
     path: 'customers',
+
     loadChildren: () =>
       import('../app/customers/customers.module').then(
         (m) => m.CustomersModule
       ),
   },
+  {
+    path: 'orders',
+    loadChildren: () =>
+      import('../app/orders/orders.module').then((m) => m.OrdersModule),
+  },
   {path: '', redirectTo: 'auth', pathMatch: 'full'},
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes, {
+      // enableTracing: true,
+    }),
+  ],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

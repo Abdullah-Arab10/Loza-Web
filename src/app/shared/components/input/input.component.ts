@@ -8,12 +8,14 @@ import {ValidationService} from 'src/app/core/services/validation.service';
   styleUrls: ['./input.component.scss'],
 })
 export class InputComponent {
-  @Input() placeholder?: string;
+  @Input() placeholder?: string = ' ';
   @Input() label?: string;
   @Input() icon?: string;
-  @Input() control: string;
+  @Input() control: string | '';
   @Input() formGroup?: FormGroup;
   @Output() inputValueEmitter = new EventEmitter<any>();
+  @Input() field: string = 'input';
+  @Input() currency = false;
   form: FormGroup;
 
   constructor(
@@ -31,11 +33,11 @@ export class InputComponent {
   get errorMessage() {
     let formControl = this.form.controls[this.control];
     for (const validatorName in formControl?.errors) {
-      if (formControl.touched)
+      if (formControl?.touched)
         return this.validationServicve.getValidatorErrorMessage(
           validatorName,
-          formControl.errors[validatorName],
-          this.control
+          formControl?.errors[validatorName],
+          this?.control
         );
     }
     return null;
