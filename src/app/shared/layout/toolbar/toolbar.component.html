@@ -1,6 +1,26 @@
-<mat-toolbar class="row ">
-<div class="col-md-3 flow-right">
-   <button (click)="logout()">logout</button> 
-</div>
-
+<mat-toolbar class="row">
+  <!--   <div class="col-md-2 icons">
+    <div class="icons__icon icons__menu" (click)="openSidebar()">
+      <svg-icon src="../../../../assets/icons/menu-light.svg"></svg-icon>
+    </div>
+      <div class="icons__icon">
+      <svg-icon src="../../../../assets/icons/message-light.svg"></svg-icon>
+    </div>
+    <div class="icons__icon">
+      <svg-icon
+        src="../../../../assets/icons/notification-light.svg"
+      ></svg-icon>
+  </div> -->
+  <div class="user-image" (click)="toggleMenu()">
+    <img src="../../../../assets/images/default.png" alt="" />
+  </div>
+  <div class="toolbar-menu" *ngIf="menu" [@fadeInOut]>
+    <ul>
+      <!-- <li class="active">Profile</li>
+        <li>Edit Profile</li>
+        <li>Account Settings</li> -->
+      <li (click)="logout()">Log out</li>
+    </ul>
+  </div>
+  <!--  </div> -->
 </mat-toolbar>

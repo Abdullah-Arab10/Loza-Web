@@ -5,6 +5,7 @@ import {BehaviorSubject, Subject, map, tap} from 'rxjs';
 import * as moment from 'moment';
 import {NotificationService} from './themes/notification.service';
 import {environment} from 'src/environments/environment';
+import {BaseUrl} from 'src/app/shared/constants/global.constants';
 @Injectable({
   providedIn: 'root',
 })
@@ -19,16 +20,17 @@ export class AuthService {
 
   public login(request: ILoginRequestModel) {
     return this.http
-      .post(`${environment.authUrl}Login`, request)
+      .post(`${BaseUrl}Auth/Login`, request)
       .pipe()
-      .subscribe((res) => {
+      .subscribe((res: any) => {
+        console.log(res);
         this.setSession(res);
         this.notificationService.showSuccess('Login Successfully !');
       });
   }
   private setSession(authResult: any) {
     const expiresAt = moment().add('3600', 'second');
-    localStorage.setItem('access_token', authResult.data[0].token);
+    localStorage.setItem('access_token', authResult.data.token);
     localStorage.setItem('expires_at', JSON.stringify(expiresAt.valueOf()));
     this.loginSubject.next(true);
   }

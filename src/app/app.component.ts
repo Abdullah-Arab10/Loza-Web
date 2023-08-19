@@ -1,14 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from './core/services/auth.service';
-import {
-  NavigationEnd,
-  NavigationStart,
-  RouteConfigLoadEnd,
-  RouteConfigLoadStart,
-  Router,
-} from '@angular/router';
+import {Router} from '@angular/router';
 import {LoadingService} from './core/services/themes/loading.service';
 import {NgxSpinnerService} from 'ngx-spinner';
+import 'hammerjs';
 
 @Component({
   selector: 'app-root',
@@ -28,13 +23,11 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.authService.login$.subscribe((res) => {
       this.signedIn = res;
-      console.log(res);
-      this.signedIn
-        ? this.route.navigate(['/home'])
-        : this.route.navigate(['/auth']);
+
+      this.signedIn == false ? this.route.navigate(['/auth']) : '';
     });
     this.loadingService.loading$.subscribe((res) => (this.loading = res));
-    this.route.events.subscribe((event) => {
+    /* this.route.events.subscribe((event) => {
       if (
         event instanceof RouteConfigLoadStart ||
         event instanceof NavigationStart
@@ -45,6 +38,6 @@ export class AppComponent implements OnInit {
         this.loadingService.hideLoader();
         return;
       }
-    });
+    }); */
   }
 }

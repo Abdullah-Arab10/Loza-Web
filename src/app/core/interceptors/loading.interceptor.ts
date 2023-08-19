@@ -19,7 +19,7 @@ export class LoadingInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<unknown>> {
     this.totalRequests++;
     this.loadingService.showLoader();
-    console.log('inter');
+
     return next.handle(request).pipe(
       finalize(() => {
         this.totalRequests--;

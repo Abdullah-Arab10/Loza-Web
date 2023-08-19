@@ -22,6 +22,10 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatOptionModule} from '@angular/material/core';
 import {MatButtonModule} from '@angular/material/button';
 import {RouterModule} from '@angular/router';
+import {ImageUploaderComponent} from './components/image-uploader/image-uploader.component';
+import {SelectComponent} from './components/select/select.component';
+import {TableModule} from 'primeng/table';
+import {TableComponent} from './components/table/table.component';
 @NgModule({
   declarations: [
     SidebarComponent,
@@ -31,6 +35,9 @@ import {RouterModule} from '@angular/router';
     InputComponent,
     TitleComponent,
     SpinnerComponent,
+    ImageUploaderComponent,
+    SelectComponent,
+    TableComponent,
   ],
   imports: [
     CommonModule,
@@ -50,6 +57,7 @@ import {RouterModule} from '@angular/router';
     MatFormFieldModule,
     MatOptionModule,
     RouterModule,
+    TableModule,
   ],
   exports: [
     SidebarComponent,
@@ -71,6 +79,10 @@ import {RouterModule} from '@angular/router';
     MatSidenavModule,
     MatToolbarModule,
     MatIconModule,
+    ImageUploaderComponent,
+    SelectComponent,
+    TableComponent,
+    ToolbarComponent,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

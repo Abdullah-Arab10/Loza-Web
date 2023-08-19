@@ -1,0 +1,40 @@
+<div class="wrapper row">
+  <!--    -->
+  <div class="row content flex-row justify-content-around card h-100">
+    <div class="col-lg-6 h-100">
+      <img
+        src="../../../assets/images/transfer.png"
+        alt=""
+        class="w-100 h-100"
+      />
+    </div>
+    <div class="col-lg-6 d-flex flex-column align-items-center p-5 h-100">
+      <div class="w-100">
+        <app-card-title
+          [title]="'Money Transformation'"
+          [className]="'green-light-background'"
+        ></app-card-title>
+      </div>
+      <form formGroup="transferForm" class="w-100">
+        <div class="filed">
+          <app-input
+            [formGroup]="transferForm"
+            [label]="'User email'"
+            [control]="'email'"
+          ></app-input>
+        </div>
+
+        <div class="filed">
+          <app-input
+            [formGroup]="transferForm"
+            [label]="'Money amount'"
+            [control]="'cash'"
+          ></app-input>
+        </div>
+        <div class="">
+          <app-button [title]="'Transfer'" (click)="transfer()"></app-button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -25,9 +25,11 @@ export class ErrorInterceptor implements HttpInterceptor {
     return next.handle(request).pipe(
       catchError((errorResponse: HttpErrorResponse) => {
         let errorMsg = '';
-        errorResponse.error?.errors?.forEach((err: IErrorModel) => {
+        /*  errorResponse.error?.errors?.forEach((err: IErrorModel) => {
           this.notificationService.showError(err.message);
-        });
+        }); */
+        errorMsg = errorResponse.error?.errors?.message;
+        this.notificationService.showError(errorMsg);
         return throwError(errorMsg);
       })
     );
